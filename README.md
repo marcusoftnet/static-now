@@ -37,7 +37,7 @@ There's just a few configuration options that you can use to control the behavio
 var options = { directory : __dirname };
 require("static-now")(options);
 ```
-By default the current directory is used
+By default the directory that node is started in is used. Meaning if you go ```npm --harmony app.js``` in ```/Volumes/Users/marcus/demo``` the files in that directory will be exposed via the web server.
 
 ## Port
 ```javascript

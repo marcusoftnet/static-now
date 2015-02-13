@@ -43,7 +43,7 @@ module.exports = function (options) {
 };
 
 var defaultOptions =  {
-	dir  	: __dirname,
+	dir  	: process.cwd(),
 	port 	: 3000,
 	auto 	: true,
 	log	: true
