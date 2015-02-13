@@ -11,7 +11,7 @@ This will start a [Koa](http://www.koajs.com) web server on port 3000 and start 
 
 You can do it on two lines also for readability
 ```javascript
-var staticnow = require("static-now")
+var staticnow = require("static-now");
 staticnow();
 ```
 # Starting the application
@@ -25,8 +25,8 @@ node --harmony app.js
 Here's a package.json node ready for you so that you can use ```npm start```:
 ```javascript
 "scripts": {
-    "start": "node --harmony app.js prod"
-  }
+	"start": "node --harmony app.js prod"
+}
 ```
 
 # Configuration
