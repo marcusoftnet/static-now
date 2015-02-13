@@ -1,6 +1,6 @@
 // serve files from where the node command is run, at port 3000
 var staticNow = require("../")
-// staticNow();
+staticNow();
 
 // or as one line
 // var staticNowOneLine = require("../")();
@@ -9,9 +9,9 @@ var staticNow = require("../")
 // var staticHere = require("../")({ directory : __dirname });
 
 // here's a version using all the options
-var staticAllOptionsSet = require("../")({
-	directory : __dirname ,
-	portnumber : 3456,
-	autostart : true,
-	log : true
-});
+// var staticAllOptionsSet = require("../")({
+// 	directory : __dirname ,
+// 	portnumber : 3456,
+// 	autostart : true,
+// 	log : true
+// });
