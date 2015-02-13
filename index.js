@@ -8,30 +8,55 @@ var serve = require("koa-static");
 
 /**
  * Module exports
- */
+ *
+
 
 /**
  * staticNow.
  *
- * @param directory - the directory with the files in it. Current directory is default
- * @param portnumber - the port number for the site. 3000 is default
- * @param autostart - true to start listening directly. true is default
+ * @param options - options for controlling the execution;
+ * - directory - the directory with the files in it. Current directory is default
+ * - portnumber - the port number for the site. 3000 is default
+ * - autostart - true to start listening directly. true is default
  * @api public
  */
-module.exports = function (directory, portnumber, autostart) {
-	var dir = directory || __dirname;
-	var port = portnumber || 3000;
-	var listenNow = autostart || true;
+module.exports = function (options) {
+	var opts = getOptions(options);
 
-	app.use(serve(dir));
+	// Set up directory for static files
+	app.use(serve(opts.dir));
 
-	if(autostart === true){
-		app.listen(port);
+	if(opts.auto === true){
 
-		console.log("You're static now, buddy!");
-		console.log("- files being served from: " + dir);
-		console.log("- listening at http://localhost:" + port);
+		// Start listening
+		app.listen(opts.port);
+
+		if(opts.log === true){
+			console.log("You're static now, buddy!");
+			console.log("- Settings:");
+			console.log(opts);
+			console.log("Your static site can be found at http://localhost:" + opts.port)
+		}
 	}
 
 	return app;
+};
+
+var defaultOptions =  {
+	dir  	: __dirname,
+	port 	: 3000,
+	auto 	: true,
+	log	: true
+};
+
+function getOptions(options){
+	var opts = defaultOptions;
+	if(options != undefined){
+		opts.dir = options.directory != undefined ? options.directory : opts.dir;
+		opts.port = options.portnumber != undefined ? options.portnumber : opts.port;
+		opts.auto = options.autostart != undefined ? options.autostart : opts.auto;
+		opts.log = options.log != undefined ? options.log : opts.log;
+	}
+
+	return opts;
 };

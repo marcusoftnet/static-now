@@ -1,13 +1,13 @@
 var should = require('should');
 var supertest = require('supertest');
-
 var staticNow = require('../');
 
 describe('Setting up a static site with static-now is trivial', function () {
+	var testingOptions = { autostart : false, log : false };
+
 	it('just takes one single line of code', function (done) {
 		// and here it is
-		// parameters sent to faciltate testing testing
-		var app = staticNow(null,null,false);
+		var app = staticNow(testingOptions);
 
 		// Let's test it out
 		var request = supertest.agent(app.listen());
@@ -20,7 +20,9 @@ describe('Setting up a static site with static-now is trivial', function () {
 	describe('of course you can be more advanced and control parameters as well', function () {
 		it('like the port and directory to serve files from', function (done) {
 
-			var app = staticNow(__dirname, 3001, false);
+			testingOptions.directory = __dirname;
+			testingOptions.portnumber = 3001;
+			var app = staticNow(testingOptions);
 
 			var request = supertest.agent(app.listen());
 			request
@@ -30,7 +32,9 @@ describe('Setting up a static site with static-now is trivial', function () {
 		});
 
 		it('or only the port number', function (done) {
-			var app = staticNow(null, 3002, false);
+
+			testingOptions.portnumber = 3002;
+			var app = staticNow(testingOptions);
 
 			var request = supertest.agent(app.listen());
 			request
@@ -40,7 +44,8 @@ describe('Setting up a static site with static-now is trivial', function () {
 		});
 
 		it('or only the directory', function (done) {
-			var app = staticNow(__dirname, null, false);
+			testingOptions.directory = __dirname;
+			var app = staticNow(testingOptions);
 
 			var request = supertest.agent(app.listen());
 			request
@@ -50,7 +55,18 @@ describe('Setting up a static site with static-now is trivial', function () {
 		});
 
 		it('or only the the parameter to control if the app should listen now or not', function (done) {
-			var app = staticNow(null, null, false);
+			var app = staticNow(testingOptions);
+
+			var request = supertest.agent(app.listen());
+			request
+				.get('/README.md') // found in the root directory
+				.expect(200)
+				.end(done);
+		});
+
+		it('hey, you can even toggle the log message if you want', function (done) {
+			testingOptions.log = true;
+			var app = staticNow(testingOptions);
 
 			var request = supertest.agent(app.listen());
 			request
