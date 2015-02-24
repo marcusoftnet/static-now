@@ -25,7 +25,7 @@ node --harmony app.js
 Here's a package.json node ready for you so that you can use ```npm start```:
 ```javascript
 "scripts": {
-	"start": "node --harmony app.js prod"
+	"start": "node --harmony app.js"
 }
 ```
 
