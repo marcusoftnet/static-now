@@ -1,10 +1,10 @@
 {
   "name": "static-now",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The fast track to serve up static files",
   "main": "index.js",
   "scripts": {
-    "start" : "node --harmony example/app.js",
+    "start": "node --harmony example/app.js",
     "test": "./node_modules/mocha/bin/mocha --harmony-generators -u bdd -R spec -b"
   },
   "repository": {
