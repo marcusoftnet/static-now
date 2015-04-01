@@ -1,6 +1,6 @@
 {
   "name": "static-now",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "The fast track to serve up static files",
   "main": "index.js",
   "scripts": {
