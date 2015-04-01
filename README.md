@@ -18,14 +18,22 @@ staticnow();
 Koa uses generators from ES6 and require 0.11.9 or higher (actually higher... go 0.11.16 for now). You can run multiple versions of node by using [n](http://npmjs.org/package/n) or [nvm](http://npmjs.org/package/nvm).
 
 Start you application with the harmony features enabled:
+
 ```bash
 node --harmony app.js
 ```
 
+Or if you're using [io.js](http://iojs.org) leave out the flag:
+
+```bash
+node app.js
+```
+
 Here's a package.json node ready for you so that you can use ```npm start```:
+
 ```javascript
 "scripts": {
-	"start": "node --harmony app.js prod"
+	"start": "node --harmony app.js"
 }
 ```
 
@@ -33,6 +41,7 @@ Here's a package.json node ready for you so that you can use ```npm start```:
 There's just a few configuration options that you can use to control the behaviour of static-now.
 
 ## Directory
+
 ```javascript
 var options = { directory : __dirname };
 require("static-now")(options);
@@ -46,7 +55,8 @@ require("static-now")(options);
 ```
 By default port 3000 is used, meaning that your web server is started at http://localhost:3000.
 
-For hosting in Heroku you can use a process parameter to get the correct port. Like so:
+For hosting in Heroku, or other platform as a service providers, you can use a process parameter to get the correct port. Like so:
+
 ```javascript
 var options = { port : process.env.PORT };
 require("static-now")(options);
