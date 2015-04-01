@@ -50,7 +50,7 @@ By default the directory that node is started in is used. Meaning if you go ```n
 
 ## Port
 ```javascript
-var options = { port : 3456 };
+var options = { portnumber : 3456 };
 require("static-now")(options);
 ```
 By default port 3000 is used, meaning that your web server is started at http://localhost:3000.
@@ -58,7 +58,7 @@ By default port 3000 is used, meaning that your web server is started at http://
 For hosting in Heroku, or other platform as a service providers, you can use a process parameter to get the correct port. Like so:
 
 ```javascript
-var options = { port : process.env.PORT };
+var options = { portnumber : process.env.PORT };
 require("static-now")(options);
 ```
 
