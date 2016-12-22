@@ -14,26 +14,26 @@ You can do it on two lines also for readability
 var staticnow = require("static-now");
 staticnow();
 ```
+
 # Starting the application
-Koa uses generators from ES6 and require 0.11.9 or higher (actually higher... go 0.11.16 for now). You can run multiple versions of node by using [n](http://npmjs.org/package/n) or [nvm](http://npmjs.org/package/nvm).
 
-Start you application with the harmony features enabled:
-
-```bash
-node --harmony app.js
-```
-
-Or if you're using [io.js](http://iojs.org) leave out the flag:
+Starting the app could not be simpler:
 
 ```bash
 node app.js
+```
+
+Start you application with the harmony features enabled, for older versions of Node:
+
+```bash
+node --harmony app.js
 ```
 
 Here's a package.json node ready for you so that you can use ```npm start```:
 
 ```javascript
 "scripts": {
-	"start": "node --harmony app.js"
+	"start": "node app.js"
 }
 ```
 
@@ -46,14 +46,19 @@ There's just a few configuration options that you can use to control the behavio
 var options = { directory : __dirname };
 require("static-now")(options);
 ```
-By default the directory that node is started in is used. Meaning if you go ```npm --harmony app.js``` in ```/Volumes/Users/marcus/demo``` the files in that directory will be exposed via the web server.
+
+By default the directory that node is started in is used. Meaning if you go ```node app.js``` in ```/Volumes/Users/marcus/demo``` the files in that directory will be exposed via the web server.
 
 ## Port
+
 ```javascript
 var options = { portnumber : 3456 };
 require("static-now")(options);
 ```
-By default port 3000 is used, meaning that your web server is started at http://localhost:3000.
+
+This will serve up the site at `http://localhost:3000`
+
+By default port 3000 is used, meaning that your web server is started at  `http://localhost:3000 `.
 
 For hosting in Heroku, or other platform as a service providers, you can use a process parameter to get the correct port. Like so:
 
@@ -91,13 +96,14 @@ describe('Starting app via supertest', function () {
 	});
 });
 ```
+
 ## Log message
 ```javascript
 var options = { log : true };
 var app = require("static-now")(options);
 ```
 
-static-now spits out some log messages showing you the current configuration etc. You can turn that off or on using the *log* option.
+`static-now` spits out some log messages showing you the current configuration etc. You can turn that off or on using the *log* option.
 
 # LICENSE
 [The MIT License](LICENSE)
