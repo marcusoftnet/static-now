@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node --harmony example/app.js",
-    "test": "./node_modules/mocha/bin/mocha --harmony-generators -u bdd -R spec -b"
+    "test": "mocha -u bdd -R spec -b"
   },
   "repository": {
     "type": "git",

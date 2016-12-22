@@ -74,12 +74,5 @@ describe('Setting up a static site with static-now is trivial', function () {
 				.expect(200)
 				.end(done);
 		});
-
-		it('but really... it is that simple', function (done) {
-			var simple = true;
-			var staticNow = true;
-			staticNow.should.be.simple;
-			done();
-		});
 	});
 });
