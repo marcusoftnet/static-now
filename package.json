@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node --harmony example/app.js",
-    "pretest" : "eslint .",
+    "pretest": "eslint .",
     "test": "mocha -u bdd -R spec -b",
     "demo": "node demo.js"
   },
@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/marcusoftnet/static-now",
   "dependencies": {
-    "koa": "~1.2.4",
-    "koa-static": "~2.0.0"
+    "koa": "^2.2.0",
+    "koa-static": "^3.0.0"
   },
   "engines": {
     "node": ">=4.x.x"

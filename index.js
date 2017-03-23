@@ -1,5 +1,5 @@
 const koa = require("koa")
-const app = koa()
+const app = new koa()
 const serve = require("koa-static")
 
 /**
