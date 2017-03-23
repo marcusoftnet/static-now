@@ -1,9 +1,9 @@
 /**
  * Module dependencies.
  */
-var koa = require("koa");
-var app = koa();
-var serve = require("koa-static");
+const koa = require("koa");
+const app = koa();
+const serve = require("koa-static");
 
 
 /**
