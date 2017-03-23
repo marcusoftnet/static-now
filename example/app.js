@@ -1,6 +1,6 @@
 // serve files from where the node command is run, at port 3000
 var staticNow = require("../")
-staticNow();
+staticNow()
 
 // or as one line
 // var staticNowOneLine = require("../")();

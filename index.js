@@ -1,6 +1,6 @@
-const koa = require("koa");
-const app = koa();
-const serve = require("koa-static");
+const koa = require("koa")
+const app = koa()
+const serve = require("koa-static")
 
 /**
  * staticNow.
@@ -12,36 +12,36 @@ const serve = require("koa-static");
  * @api public
  */
 module.exports = function staticnow(options) {
-	const opts = getOptions(options);
+	const opts = getOptions(options)
 
 	// Set up directory for static files
-	app.use(serve(opts.dir));
+	app.use(serve(opts.dir))
 
 	if(opts.auto === true){
 
 		// Start listening
-		app.listen(opts.port);
+		app.listen(opts.port)
 
 		if(opts.log === true){
-			console.log("You're static now, buddy!");
-			console.log("- Settings:");
-			console.log(opts);
+			console.log("You're static now, buddy!")
+			console.log("- Settings:")
+			console.log(opts)
 			console.log("Your static site can be found at http://localhost:" + opts.port)
 		}
 	}
 
-	return app;
-};
+	return app
+}
 
 const defaultOptions =  {
 	dir  	: process.cwd(),
 	port 	: 3000,
 	auto 	: true,
 	log	: true
-};
+}
 
 function getOptions(options){
-	var opts = defaultOptions;
+	var opts = defaultOptions
 	if(options != undefined){
 		opts.dir = options.directory != undefined ? options.directory : opts.dir
 		opts.port = options.portnumber != undefined ? options.portnumber : opts.port
@@ -49,5 +49,5 @@ function getOptions(options){
 		opts.log = options.log != undefined ? options.log : opts.log
 	}
 
-	return opts;
+	return opts
 }
