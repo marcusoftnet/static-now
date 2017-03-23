@@ -1,6 +1,6 @@
-var should = require('should');
-var supertest = require('supertest');
-var staticNow = require('../');
+/* global describe it */
+const supertest = require('supertest');
+const staticNow = require('../');
 
 describe('Setting up a static site with static-now is trivial', function () {
 	var testingOptions = { autostart : false, log : false };

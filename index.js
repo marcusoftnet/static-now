@@ -1,15 +1,6 @@
-/**
- * Module dependencies.
- */
 const koa = require("koa");
 const app = koa();
 const serve = require("koa-static");
-
-
-/**
- * Module exports
- *
-
 
 /**
  * staticNow.
@@ -20,8 +11,8 @@ const serve = require("koa-static");
  * - autostart - true to start listening directly. true is default
  * @api public
  */
-module.exports = function (options) {
-	var opts = getOptions(options);
+module.exports = function staticnow(options) {
+	const opts = getOptions(options);
 
 	// Set up directory for static files
 	app.use(serve(opts.dir));
@@ -42,7 +33,7 @@ module.exports = function (options) {
 	return app;
 };
 
-var defaultOptions =  {
+const defaultOptions =  {
 	dir  	: process.cwd(),
 	port 	: 3000,
 	auto 	: true,
@@ -52,11 +43,11 @@ var defaultOptions =  {
 function getOptions(options){
 	var opts = defaultOptions;
 	if(options != undefined){
-		opts.dir = options.directory != undefined ? options.directory : opts.dir;
-		opts.port = options.portnumber != undefined ? options.portnumber : opts.port;
-		opts.auto = options.autostart != undefined ? options.autostart : opts.auto;
-		opts.log = options.log != undefined ? options.log : opts.log;
+		opts.dir = options.directory != undefined ? options.directory : opts.dir
+		opts.port = options.portnumber != undefined ? options.portnumber : opts.port
+		opts.auto = options.autostart != undefined ? options.autostart : opts.auto
+		opts.log = options.log != undefined ? options.log : opts.log
 	}
 
 	return opts;
-};
+}

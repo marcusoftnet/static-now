@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node --harmony example/app.js",
+    "pretest" : "eslint .",
     "test": "mocha -u bdd -R spec -b",
-    "demo" : "node demo.js"
+    "demo": "node demo.js"
   },
   "repository": {
     "type": "git",
@@ -24,14 +25,15 @@
   },
   "homepage": "https://github.com/marcusoftnet/static-now",
   "dependencies": {
-    "koa-static": "~2.0.0",
-    "koa": "~1.2.4"
+    "koa": "~1.2.4",
+    "koa-static": "~2.0.0"
   },
-  "engines" : {
-    "node" : ">=4.x.x"
+  "engines": {
+    "node": ">=4.x.x"
   },
   "devDependencies": {
     "mocha": "^2.1.0",
+    "eslint": "^3.18.0",
     "should": "^5.0.0",
     "supertest": "^0.15.0"
   }
