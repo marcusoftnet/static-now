@@ -1,7 +1,7 @@
-//require("./")() // simplest possible
+require("./")() // simplest possible
 
 // or you can set options (all default)
-const staticnow = require("./")
+/*const staticnow = require("./")
 const options = {
 	dir  	: process.cwd(),
 	port 	: 3000,
@@ -9,4 +9,5 @@ const options = {
 	log	    : true
 }
 
-staticnow(options) // with options
+staticnow(options) // with options */
+console.log('Try to browse http://localhost:3000/package.json for example')
